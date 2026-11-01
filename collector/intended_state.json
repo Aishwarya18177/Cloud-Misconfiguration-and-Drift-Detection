@@ -1,0 +1,7 @@
+{
+    "allowBlobPublicAccess": false,
+    "publicNetworkAccess": "Enabled",
+    "minimumTlsVersion": "TLS1_2",
+    "allowSharedKeyAccess": true,
+    "supportsHttpsTrafficOnly": true
+}
