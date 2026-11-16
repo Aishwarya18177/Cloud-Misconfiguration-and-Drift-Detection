@@ -1,4 +1,4 @@
-import json
+﻿import json
 import sys
 
 from pathlib import Path
@@ -38,7 +38,7 @@ def collect_actual_state():
     from azure.identity import AzureCliCredential
     from azure.mgmt.storage import StorageManagementClient
 
-    credential = AzureCliCredential()
+    from azure_auth import get_azure_credential; credential = get_azure_credential()
 
     try:
         client = StorageManagementClient(

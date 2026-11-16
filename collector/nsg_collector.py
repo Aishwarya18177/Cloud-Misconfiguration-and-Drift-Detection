@@ -1,4 +1,4 @@
-import json
+﻿import json
 import sys
 
 from datetime import datetime, timezone
@@ -107,7 +107,7 @@ def normalize_rule(rule):
 # ============================================================
 
 def collect_nsg_state():
-    credential = AzureCliCredential()
+    from azure_auth import get_azure_credential; credential = get_azure_credential()
 
     try:
         client = NetworkManagementClient(

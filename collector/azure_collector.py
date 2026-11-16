@@ -1,4 +1,4 @@
-import os
+﻿import os
 import streamlit as st
 from azure.identity import ClientSecretCredential, AzureCliCredential
 
@@ -21,4 +21,4 @@ if client_id and client_secret and tenant_id:
         client_secret=client_secret,
     )
 else:
-    credential = AzureCliCredential()
+    from azure_auth import get_azure_credential; credential = get_azure_credential()
