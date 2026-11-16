@@ -1,4 +1,4 @@
-﻿import html
+import html
 import json
 import os
 import sqlite3
@@ -43,7 +43,7 @@ DATABASE = ROOT / "database" / "drift_detection.db"
 
 st.set_page_config(
     page_title="DriftGuard | Azure Security",
-    page_icon="ðŸ›¡ï¸",
+    page_icon="🛡️",
     layout="wide"
 )
 
@@ -771,7 +771,7 @@ with st.sidebar:
     markup(
         '<div class="side-label">WORKSPACE</div>'
         '<div class="side-item">'
-        'â—ˆ &nbsp; Azure storage monitor'
+        '◈ &nbsp; Azure storage monitor'
         '</div>'
     )
 
@@ -792,12 +792,12 @@ with st.sidebar:
     )
 
     refresh = st.button(
-        "â†»  Refresh Azure",
+        "↻  Refresh Azure",
         width="stretch"
     )
 
     st.button(
-        "â†»  Refresh saved history",
+        "↻  Refresh saved history",
         width="stretch",
         help="Reload database records without requesting Azure again."
     )
@@ -826,7 +826,7 @@ if refresh or first_load:
     st.session_state.pop("dg_snapshot", None)
 
     try:
-        with st.spinner("Reading Azure configurationâ€¦"):
+        with st.spinner("Reading Azure configuration…"):
             st.session_state.dg_snapshot = collect_snapshot()
 
         st.session_state.pop("dg_error", None)
@@ -861,7 +861,7 @@ snapshot = st.session_state.get("dg_snapshot")
 
 if snapshot is None:
     st.error(
-        "Current assessment unavailable â€” Azure could not be checked."
+        "Current assessment unavailable — Azure could not be checked."
     )
 
     st.info(
@@ -885,7 +885,7 @@ else:
 
     checked = datetime.fromisoformat(
         snapshot["checked_at"]
-    ).strftime("%d %b %Y Â· %H:%M:%S UTC")
+    ).strftime("%d %b %Y · %H:%M:%S UTC")
 
     drifts = [
         key
@@ -966,7 +966,7 @@ else:
 
     st.caption(
         f"Last successful Azure check: {checked} "
-        "Â· Snapshot, not continuous monitoring"
+        "· Snapshot, not continuous monitoring"
     )
 
     columns = st.columns(4)
@@ -1623,7 +1623,7 @@ with scan_tab:
 markup(
     '<div class="footer">'
     'DRIFTGUARD / AZURE STORAGE SECURITY'
-    ' &nbsp; Â· &nbsp; READ-ONLY AZURE COLLECTION'
-    ' &nbsp; Â· &nbsp; MANUAL REFRESH'
+    ' &nbsp; · &nbsp; READ-ONLY AZURE COLLECTION'
+    ' &nbsp; · &nbsp; MANUAL REFRESH'
     '</div>'
 )
